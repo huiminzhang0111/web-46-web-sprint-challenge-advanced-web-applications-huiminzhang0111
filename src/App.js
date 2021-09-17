@@ -8,7 +8,6 @@ import PrivateRoute from './components/PrivateRoute';
 import "./styles.scss";
 
 function App() {
-  const isLoggedIn = localStorage.getItem("token");
 
   return (
     <Router>

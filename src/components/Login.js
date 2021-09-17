@@ -28,12 +28,12 @@ const Login = () => {
       .then(res => {
         localStorage.setItem("token", res.data.payload)
         push("/bubble-page")
-      }).catch(err => {console.log(err)})
+      }).catch(err => {console.log(err.response.data.error)})
   }
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
 
-  const error = "";
+  const [error, setError] = useState("")
   //replace with error state
 
   return (
