@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from 'axios';
 import {useHistory} from 'react-router';
+import userEvent from "@testing-library/user-event";
 
 const initialState = {
   username: "",
@@ -28,12 +29,14 @@ const Login = () => {
       .then(res => {
         localStorage.setItem("token", res.data.payload)
         push("/bubble-page")
-      }).catch(err => {console.log(err.response.data.error)})
+      })
+      .catch(err => {setError(err.response.data.error)})
   }
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
 
   const [error, setError] = useState("")
+
   //replace with error state
 
   return (
