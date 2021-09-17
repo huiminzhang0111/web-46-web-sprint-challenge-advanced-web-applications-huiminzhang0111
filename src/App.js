@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Login from "./components/Login";
 import "./styles.scss";
@@ -11,7 +11,16 @@ function App() {
         <header>
           Color Picker Sprint Challenge
           <a data-testid="logoutButton" href="#">logout</a>
+          <Link to='/login'>Login</Link>
         </header>
+        <Switch>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/'>
+            <Login />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
